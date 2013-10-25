@@ -1,0 +1,19 @@
+importFrom( stats, fisher.test )
+importFrom( RColorBrewer, brewer.pal )
+importFrom( gplots, heatmap.2 )
+
+export(GeneOverlap, GeneOverlapMatrix)
+
+S3method( print, GeneOverlap )
+S3method( summary, GeneOverlap )
+S3method( print, summary.GeneOverlap )
+S3method( plot, GeneOverlap )
+S3method( plot2, GeneOverlap )
+
+S3method( print, GeneOverlapMatrix )
+S3method( summary, GeneOverlapMatrix )
+S3method( print, summary.GeneOverlapMatrix )
+S3method( plot, GeneOverlapMatrix )
+
+
+# exportPattern("^[[:alpha:]]+")
