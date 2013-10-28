@@ -16,6 +16,14 @@ test_GeneOverlap <- function() {
     checkEqualsNumeric(getPval(go.obj), fish.res$p.value)
     checkEqualsNumeric(getOddsRatio(go.obj), fish.res$estimate)
     
+    # Gene lists contain invalid entries.
+    listC <- c("A", NA, "B")
+    go.obj <- newGeneOverlap(listC, listB, genome.size=10)
+    checkEquals(getListA(go.obj), c("A", "B"))
+    go.obj <- testGeneOverlap(go.obj)
+    checkEqualsNumeric(getPval(go.obj), fish.res$p.value)
+    checkEqualsNumeric(getOddsRatio(go.obj), fish.res$estimate)
+    
     # Test NO overlap.
     listA <- c("A", "B")
     listB <- c("C", "D")
@@ -46,10 +54,6 @@ test_GeneOverlap <- function() {
 
     # Genome smaller than gene lists combined.
     checkException(newGeneOverlap("A", "B", genome.size=1))
-
-    # Bad gene lists.
-    checkException(newGeneOverlap("A", NA))
-    checkException(newGeneOverlap(NA, "B"))
 }
 
 test_GeneOverlapMatrix <- function() {
@@ -74,27 +78,26 @@ test_GeneOverlapMatrix <- function() {
     checkEquals(gom.obj[1, 1], go.obj)
     checkEquals(gom.obj["A", "B"], go.obj)
     
+    # Wrong inputs.
+    checkException(newGOM(gsetA, matrix(c(1, 2, 3, 4), nrow=2)))
+    
+    # gsetA self-comparison not enough size.
+    checkException(newGOM(gsetA))
+    checkException(newGOM(list()))
+    
+    # gsetA cannot be empty.
+    checkException(newGOM(list(), gsetB))
+    
+    # Accessing index out of boundary.
+    checkException(gom.obj[2, 1])
+    checkException(gom.obj[1, -2])
+    checkException(gom.obj["C", 1])
+    checkException(gom.obj[1, "C"])
+    
 }
 
-#     # gsetA not long enough.
-#     gs1 <- list(A=c("A"))
-#     checkException(GeneOverlapMatrix(gs1))
-#     # gsetB is empty.
-#     gs2 <- list()
-#     checkException(GeneOverlapMatrix(gs1, gs2))
-#     
-#     # A simple case of two sets of one gene list each with no overlap.
-#     gs3 <- list(B=c("B"))
-#     obj.no.overlap <- structure(list(pval=1.0, odds.ratio=.0, intersection=0, 
-#                                      sizeA=1, sizeB=1, union=2, genome.size=20e3),
-#                                 class="GeneOverlap")
-#     mat.no.overlap <- structure(list(self.compare=F, 
-#                                      overlap.matrix=list(
-#                                          B=list(A=obj.no.overlap))
-#                                      ),
-#                                 class="GeneOverlapMatrix")
-#     checkEquals(GeneOverlapMatrix(gs1, gs3, genome.size=20e3), mat.no.overlap)
-    
+
+
 
 
 

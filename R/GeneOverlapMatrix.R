@@ -170,14 +170,14 @@ setMethod(
         stopifnot(is.numeric(j) || is.character(j))
         if(is.numeric(j)) {
             j <- as.integer(j)
-            stopifnot(j >= 1 && j <= length(x@go.nested.list))
+            stopifnot(abs(j) <= length(x@go.nested.list))
         } else {
             stopifnot(j %in% names(x@go.nested.list))
         }
         gom.col <- x@go.nested.list[[j]]
         if(is.numeric(i)) {
             i <- as.integer(i)
-            stopifnot(i >= 1 && i <= length(gom.col))
+            stopifnot(abs(i) <= length(gom.col))
         } else {
             stopifnot(i %in% names(gom.col))
         }

@@ -28,6 +28,8 @@ newGeneOverlap <- function(listA, listB, genome.size=NULL,
                            spec=c('mm9.gene', 'hg19.gene', 'rn4.gene')) {
     listA <- unique(as.character(listA))
     listB <- unique(as.character(listB))
+    listA <- listA[!is.na(listA)]
+    listB <- listB[!is.na(listB)]
     
     # Setup genome size.
     if(is.null(genome.size)){
