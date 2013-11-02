@@ -12,7 +12,6 @@ Use this function to create objects of the GeneOverlap class.
 \usage{
 newGeneOverlap(listA, listB, genome.size = NULL, 
     spec = c("mm9.gene", "hg19.gene", "rn4.gene"))
-testGeneOverlap(object)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -57,9 +56,10 @@ Both listA and listB will be converted to unique character vectors before testin
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-listA <- c("A", "B", "C")
-listB <- c("B", "C", "D")
-go.obj <- newGeneOverlap(listA, listB, genome.size=10)
+data(GeneOverlap)
+go.obj <- newGeneOverlap(hESC.ChIPSeq.list$H3K4me3, 
+                         hESC.ChIPSeq.list$H3K9me3, 
+                         gs.RNASeq)
 print(go.obj)  # not tested yet.
 go.obj <- testGeneOverlap(go.obj)
 print(go.obj)

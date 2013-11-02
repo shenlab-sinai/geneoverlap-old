@@ -1,11 +1,11 @@
 Package: GeneOverlap
 Type: Package
-Title: Test overlaps between gene lists
-Version: 0.1.0
-Date: 2013-10-04
+Title: Test and visualize gene overlaps
+Version: 0.2.0
+Date: 2013-10-29
 Author: Li Shen
 Maintainer: Li Shen <shenli.sam@gmail.com>
 Description: Test two sets of gene lists and visualize the results.
 License: GPL-3
-Suggests: RUnit, BiocGenerics
-Imports: stats, RColorBrewer, gplots
+Suggests: RUnit, BiocGenerics, BiocStyle
+Imports: stats, RColorBrewer, gplots, methods

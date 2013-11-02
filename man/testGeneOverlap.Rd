@@ -1,29 +1,31 @@
 \name{testGeneOverlap}
-\alias{testGeneOverlap-method}
+\alias{testGeneOverlap}
+\alias{testGeneOverlap,GeneOverlap-method}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Test function for the GeneOverlap class
+    Test function for the GeneOverlap class
 %%  ~~function to do ... ~~
 }
 \description{
-Perform Fisher's exact test based on the information supplied in the GeneOverlap object, such as gene list A, B and genome size. Set the tested Boolean label.
+    Perform Fisher's exact test based on the information supplied in the 
+    GeneOverlap object, such as gene list A, B and genome size. Set the tested
+    Boolean label.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-testGeneOverlap(object)
+\S4method{testGeneOverlap}{GeneOverlap}(object)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{object}{
-  A GeneOverlap object.
-%%     ~~Describe \code{x} here~~
-}
+  \item{object}{A GeneOverlap object.}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-A GeneOverlap object with valid p-value, odds ratio and contingency table. The tested Boolean label is set to true. Use show or print to display a summary of the object. Use accessors to get information of each slot.
+    A GeneOverlap object with valid p-value, odds ratio and contingency table. 
+    The tested Boolean label is set to true. Use show or print to display a 
+    summary of the object. Use accessors to get information of each slot.
 %%  ~Describe the value returned
 %%  If it is a LIST, use
 %%  \item{comp1 }{Description of 'comp1'}
@@ -43,12 +45,14 @@ A GeneOverlap object with valid p-value, odds ratio and contingency table. The t
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
+\code{\link{GeneOverlap-class}}
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-listA <- c("A", "B", "C")
-listB <- c("B", "C", "D")
-go.obj <- newGeneOverlap(listA, listB, genome.size=10)
+data(GeneOverlap)
+go.obj <- newGeneOverlap(hESC.ChIPSeq.list$H3K4me3, 
+                         hESC.ChIPSeq.list$H3K27me3, 
+                         genome.size=gs.RNASeq)
 go.obj <- testGeneOverlap(go.obj)
 getPval(go.obj)
 getOddsRatio(go.obj)

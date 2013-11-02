@@ -27,7 +27,7 @@ newGOM <- function(gsetA, gsetB=list(), genome.size=NULL,
         go.nested.list <- 
             lapply(col.iter, function(ci) {
                 this.col <- lapply(row.iter, function(ri) {
-                    if(ri == ci) {
+                    if(ri >= ci) {
                         go.obj <- newGeneOverlap(NULL, NULL)  # same list.
                         testGeneOverlap(go.obj)
                     } else {
@@ -126,7 +126,10 @@ setMethod(
 )
 
 setGeneric("getMatrix", 
-           function(object, name) { standardGeneric("getMatrix")}
+           function(object, name=c("pval", "odds.ratio", 
+                                   "intersection", "union")) { 
+               standardGeneric("getMatrix")
+           }
 )
 setMethod(
     "getMatrix", "GeneOverlapMatrix",
@@ -145,7 +148,10 @@ setMethod(
 )
 
 setGeneric("getNestedList", 
-           function(object, name) { standardGeneric("getNestedList")}
+           function(object, name=c("intersection", "union", 
+                                   "cont.tbl")) { 
+               standardGeneric("getNestedList")
+           }
 )
 setMethod(
     "getNestedList", "GeneOverlapMatrix",
@@ -207,11 +213,15 @@ setMethod(
         
         # Adjust p-values if needed.
         if(adj.p) {
-            n <- ifelse(object@self.compare, 
-                        (nrow(pv.mat) + 1) * nrow(pv.mat) / 2,
-                        nrow(pv.mat) * ncol(pv.mat))
-            pv.mat <- matrix(p.adjust(pv.mat, method='BH', n=n), 
-                             nrow=nrow(pv.mat))
+            if(object@self.compare) {
+                pv.mask <- sapply(1:ncol(pv.mat), function(j) {
+                    c(rep(T, j), rep(F, nrow(pv.mat) - j))
+                })
+                pv.mat[pv.mask] <- p.adjust(pv.mat[pv.mask], method='BH')
+            } else {
+                pv.mat <- matrix(p.adjust(pv.mat, method='BH'), 
+                                 nrow=nrow(pv.mat))
+            }
         }
         
         # Use odds ratio and p-value cutoff to mask insignificant cells.
@@ -243,7 +253,7 @@ setMethod(
                   scale='none', Colv=NA, Rowv=NA, trace='none', 
                   dendrogram='none', density.info='none', 
                   sepcolor='white', sepwidth=c(0.002,0.002),
-                  notecex=1.8)
+                  notecex=1.6)
     }
 )
 

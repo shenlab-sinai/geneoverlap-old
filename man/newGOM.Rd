@@ -16,24 +16,25 @@ newGOM(gsetA, gsetB=list(), genome.size=NULL,
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{gsetA}{
-  Gene set A as a named list with each element being a vector of gene names.
+  Gene set A as a named list with each element being a vector/factor of gene names.
 }
   \item{gsetB}{
-  Gene set B as a named list with each element being a vector of gene names.
+  Gene set B as a named list with each element being a vector/factor of gene names.
 }
   \item{genome.size}{
   The number of genes in the genome as an integer.
 }
   \item{spec}{
-  A string description of the genome with a few presetted genome sizes.
+  A string description of the genome to use. There are a few presetted genome sizes to choose from for a user's convenience.
 }
 %%     ~~Describe \code{x} here~~
 }
 \details{
-This will create a matrix so that each grid represents the pairwise comparison between two gene lists. Given two sets A and B, the matrix will represent all comparisons bewteen gene lists in A vs. gene lists in B. The set A will be shown as rows and the set B will be shown as columns. If given only one set, it will represent all comparisons between gene lists within the set and only the upper triangular of the matrix will be used.
+This will create a matrix so that each grid represents the comparison between the two gene lists from the two gene sets. Given two gene sets A and B, the matrix will represent all comparisons bewteen gene lists in A vs. gene lists in B. The set A will be shown as rows and the set B will be shown as columns. If only gene set A is given, the matrix will represent all comparisons between gene lists within the gene set and only the upper triangular matrix will be used.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
+A GeneOverlapMatrix object. Use accesssors to access to its internal structure and members. Use show or print to obtain summarized information. Use \code{drawHeatmap} to visualize it.
 %%  ~Describe the value returned
 %%  If it is a LIST, use
 %%  \item{comp1 }{Description of 'comp1'}
@@ -53,17 +54,14 @@ This will create a matrix so that each grid represents the pairwise comparison b
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
+\code{\link{GeneOverlapMatrix-class}}, \code{\link{GeneOverlap-class}}
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x) 
-{
-  }
+data(GeneOverlap)
+gom.obj <- newGOM(hESC.ChIPSeq.list, hESC.RNASeq.list, gs.RNASeq)
+gom.obj
+drawHeatmap(gom.obj)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

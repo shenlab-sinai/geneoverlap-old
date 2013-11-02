@@ -1,16 +1,39 @@
 \name{GeneOverlapMatrix}
 \alias{GeneOverlapMatrix-class}
+\alias{show,GeneOverlapMatrix-method}
+\alias{print,GeneOverlapMatrix-method}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Matrix representation of the pairwise overlaps between two gene sets
+    Matrix representation of the pairwise overlaps between two gene sets
 }
 \description{
-Given one or two gene sets each contains one or more gene lists, create a matrix to represent all pairwise comparisons between the gene lists. This class also provides functions to visualize the matrix.
+    Given one or two gene sets each contains one or more gene lists, create a 
+    matrix to represent all pairwise comparisons between the gene lists. This 
+    class also provides functions to visualize the matrix.
+}
+\usage{
+\S4method{show}{GeneOverlapMatrix}(object)
+\S4method{print}{GeneOverlapMatrix}(object)
+}
+\arguments{
+  \item{object}{A GeneOverlapMatrix object.}
 }
 \details{
-The problem is stated as the representation of all pairwise comparisons between two gene sets each contains one or more gene lists. This is represented as a matrix where the rows correspond to one gene set and the columns correspond to the other. Each grid represents the overlap between two gene lists of the corresponding row and column. This class calls the GeneOverlap constructor to create objects that represent the overlapping information. When there is only one gene set, the matrix represents the self-comparison within the gene set and only the upper triangle is used.
+    The problem is stated as the representation of all pairwise comparisons 
+    between two gene sets each contains one or more gene lists. This is 
+    represented as a matrix where the rows correspond to one gene set and the 
+    columns correspond to the other. Each grid represents the overlap between 
+    two gene lists of the corresponding row and column. This class calls the
+    GeneOverlap constructor to create objects that represent the overlapping
+    information. When there is only one gene set, the matrix represents the 
+    self-comparison within the gene set and only the upper triangular matrix is 
+    used.
 
-The significance of gene overlap is characterized by two pieces of information: odds ratio and p-value. This class provides functions to visualize these information as a heatmap. The darkness of the color of each grid represents the odds ratio while the texts superimposed on the grids state the p-values.
+    The significance of gene overlap is characterized by two pieces of 
+    information: odds ratio and p-value. This class provides functions to 
+    visualize these information as a heatmap. The darkness of the color of each 
+    grid represents the odds ratio while the texts superimposed on the grids 
+    state the p-values.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
@@ -26,7 +49,9 @@ The significance of gene overlap is characterized by two pieces of information: 
 \author{
 Li Shen <\email{shenli.sam@gmail.com}>
 
-\url{http://www.linkedin.com/in/lshen/}
+Lab:\url{http://shenlab-sinai.github.io/shenlab-sinai/}
+    
+Personal:\url{http://www.linkedin.com/in/lshen/}
 %%  ~~who you are~~
 }
 \note{
@@ -40,6 +65,11 @@ Li Shen <\email{shenli.sam@gmail.com}>
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
+data(GeneOverlap)
+gom.obj <- newGOM(hESC.ChIPSeq.list, hESC.RNASeq.list, gs.RNASeq)
+gom.obj
+print(gom.obj)
+drawHeatmap(gom.obj)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

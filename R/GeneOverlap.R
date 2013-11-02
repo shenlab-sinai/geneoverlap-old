@@ -213,7 +213,7 @@ setGeneric("setListA<-",
 setReplaceMethod(
     "setListA", "GeneOverlap",
     function(object, value) {
-        object@listA <- value
+        object@listA <- as.character(value)
         object@intersection <- intersect(object@listA, object@listB)
         object@union <- union(object@listA, object@listB)
         object@is.tested <- F
@@ -229,7 +229,7 @@ setGeneric("setListB<-",
 setReplaceMethod(
     "setListB", "GeneOverlap",
     function(object, value) {
-        object@listB <- value
+        object@listB <- as.character(value)
         object@intersection <- intersect(object@listA, object@listB)
         object@union <- union(object@listA, object@listB)
         object@is.tested <- F

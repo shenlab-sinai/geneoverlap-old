@@ -2,18 +2,32 @@ importFrom( stats, fisher.test )
 importFrom( RColorBrewer, brewer.pal )
 importFrom( gplots, heatmap.2 )
 
-export(GeneOverlap, GeneOverlapMatrix)
+exportClasses( "GeneOverlap", "GeneOverlapMatrix" )
 
-S3method( print, GeneOverlap )
-S3method( summary, GeneOverlap )
-S3method( print, summary.GeneOverlap )
-S3method( plot, GeneOverlap )
-S3method( plot2, GeneOverlap )
+exportMethods(
+    show, print,
+    getListA, "setListA<-",
+    getListB, "setListB<-",
+    getIntersection,
+    getUnion,
+    getGenomeSize, "setGenomeSize<-",
+    getTested,
+    getContbl,
+    getPval,
+    getOddsRatio,
+    testGeneOverlap,
+    getGsetA,
+    getGsetB,
+    getSelfCompare,
+    getMatrix,
+    getNestedList,
+    "[",
+    drawHeatmap
+)
 
-S3method( print, GeneOverlapMatrix )
-S3method( summary, GeneOverlapMatrix )
-S3method( print, summary.GeneOverlapMatrix )
-S3method( plot, GeneOverlapMatrix )
-
+export(
+    newGeneOverlap,
+    newGOM
+)
 
 # exportPattern("^[[:alpha:]]+")
