@@ -19,9 +19,6 @@
 \arguments{
   \item{object}{A GeneOverlap object.}
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
     A GeneOverlap object with valid p-value, odds ratio and contingency table. 
     The tested Boolean label is set to true. Use show or print to display a 
@@ -31,15 +28,6 @@
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

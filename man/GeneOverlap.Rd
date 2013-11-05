@@ -14,10 +14,12 @@
 }
 \usage{
 \S4method{show}{GeneOverlap}(object)
-\S4method{print}{GeneOverlap}(object)
+\S4method{print}{GeneOverlap}(x, ...)
 }
 \arguments{
   \item{object}{A GeneOverlap object.}
+  \item{x}{A GeneOverlap object.}
+  \item{...}{They are not used.}
 }
 \details{
     The problem of gene overlap testing can be described by a hypergeometric

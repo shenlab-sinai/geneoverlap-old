@@ -28,9 +28,6 @@ newGeneOverlap(listA, listB, genome.size = NULL,
   A character string of the genome name. Currently choose one of: mm9.gene, hg19.gene, rn4.gene. The gene numbers are based on protein coding genes.
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
 A GeneOverlap object.
 %%  ~Describe the value returned
@@ -39,12 +36,6 @@ A GeneOverlap object.
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
 \note{
 Both listA and listB will be converted to unique character vectors before testing, that means, the duplicated gene names are removed and therefore not counted.
 %%  ~~further notes~~
@@ -52,9 +43,6 @@ Both listA and listB will be converted to unique character vectors before testin
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
 data(GeneOverlap)
 go.obj <- newGeneOverlap(hESC.ChIPSeq.list$H3K4me3, 

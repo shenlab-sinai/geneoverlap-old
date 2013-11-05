@@ -13,10 +13,12 @@
 }
 \usage{
 \S4method{show}{GeneOverlapMatrix}(object)
-\S4method{print}{GeneOverlapMatrix}(object)
+\S4method{print}{GeneOverlapMatrix}(x, ...)
 }
 \arguments{
   \item{object}{A GeneOverlapMatrix object.}
+  \item{x}{A GeneOverlapMatrix object.}
+  \item{...}{They are not used.}
 }
 \details{
     The problem is stated as the representation of all pairwise comparisons 
@@ -36,16 +38,6 @@
     state the p-values.
 %%  ~~ If necessary, more details than the description above ~~
 }
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
 \author{
 Li Shen <\email{shenli.sam@gmail.com}>
 
@@ -53,9 +45,6 @@ Lab:\url{http://shenlab-sinai.github.io/shenlab-sinai/}
     
 Personal:\url{http://www.linkedin.com/in/lshen/}
 %%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

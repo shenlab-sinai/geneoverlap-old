@@ -14,7 +14,7 @@
 \tabular{ll}{
 Package: \tab GeneOverlap\cr
 Type: \tab Package\cr
-Version: \tab 0.2.0\cr
+Version: \tab 0.99.0\cr
 Date: \tab 2013-11-01\cr
 License: \tab GPL-3\cr
 }
@@ -34,9 +34,3 @@ Personal:\url{http://www.linkedin.com/in/lshen/}
 \keyword{ htest }
 \keyword{ hplot }
 \keyword{ graphs }
-\seealso{
-
-}
-\examples{
-
-}
