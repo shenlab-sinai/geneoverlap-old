@@ -8,6 +8,7 @@ setClass(
                    cont.tbl="matrix",
                    odds.ratio="numeric",
                    pval="numeric",
+                   Jaccard="numeric",
                    is.tested="logical"),
     validity=function(object) {
         if(length(object@listA) > 0 && is.na(object@listA)) {
@@ -61,6 +62,7 @@ setMethod(
                                format(object@pval, scientific=T, digits=2),
                                format(object@pval, digits=2)
                         )))
+            cat(sprintf("Jaccard Index=%.1f\n", object@Jaccard))
         } else {
             cat("Overlap testing has not been performed yet.\n")
         }
@@ -94,6 +96,7 @@ setMethod(
                         )))
             cat(sprintf("Odds ratio=%.1f\n", x@odds.ratio))
             cat("Overlap tested using Fisher's exact test (alternative=greater)\n")
+            cat(sprintf("Jaccard Index=%.1f\n", x@Jaccard))
         } else {
             cat("Overlap has not been tested yet. Use testGeneOverlap method.\n")
         }
@@ -207,6 +210,21 @@ setMethod(
     }
 )
 
+setGeneric("getJaccard", 
+           function(object) { standardGeneric("getJaccard")}
+)
+setMethod(
+    "getJaccard", "GeneOverlap",
+    function(object) {
+        if(object@is.tested) {
+            object@Jaccard
+        } else {
+            warning("Test has not been performed yet.\n")
+            NA
+        }
+    }
+)
+
 setGeneric("setListA<-", 
            function(object, value) { standardGeneric("setListA<-") }
 )
@@ -282,8 +300,14 @@ setMethod(
             object@odds.ratio <- .0
             object@pval <- 1.
         }
-        object@is.tested <- T
         
+        # Calculate Jaccard index.
+        object@Jaccard <- ifelse(length(object@union) == 0, 0, 
+                                 length(object@intersection) / 
+                                     length(object@union)
+                                 )
+        
+        object@is.tested <- T
         object
     }
 )

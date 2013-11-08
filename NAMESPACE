@@ -16,6 +16,7 @@ exportMethods(
     getContbl,
     getPval,
     getOddsRatio,
+    getJaccard,
     testGeneOverlap,
     getGsetA,
     getGsetB,
