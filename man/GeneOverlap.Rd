@@ -65,10 +65,15 @@
 
     which gives exactly the same p-value. In addition, the Fisher's test 
     function also provides an estimated odds ratio, confidence interval, etc.
+    
+    The Jaccard index is a measurement of similarity between two sets. It is 
+    defined as the number of intersections over the number of unions.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \references{
 \url{http://en.wikipedia.org/wiki/Fisher's_exact_test}
+
+\url{http://en.wikipedia.org/wiki/Jaccard_index}
 %% ~put references to the literature/web site here ~
 }
 \author{

@@ -36,7 +36,7 @@
     visualize these information as a heatmap. The color gradients of each 
     grid represents the odds ratio while the texts superimposed on the grids 
     state the p-values. It is also possible to let the color gradients 
-    represent Jaccard index - a metric of similarity between two sets.
+    represent Jaccard index - a measurement of similarity between two sets.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \author{
