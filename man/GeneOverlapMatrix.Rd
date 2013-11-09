@@ -33,9 +33,10 @@
 
     The significance of gene overlap is characterized by two pieces of 
     information: odds ratio and p-value. This class provides functions to 
-    visualize these information as a heatmap. The darkness of the color of each 
+    visualize these information as a heatmap. The color gradients of each 
     grid represents the odds ratio while the texts superimposed on the grids 
-    state the p-values.
+    state the p-values. It is also possible to let the color gradients 
+    represent Jaccard index - a metric of similarity between two sets.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \author{

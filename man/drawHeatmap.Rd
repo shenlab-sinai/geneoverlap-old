@@ -43,7 +43,7 @@ data(GeneOverlap)
 gom.obj <- newGOM(hESC.ChIPSeq.list, genome.size=gs.RNASeq)
 drawHeatmap(gom.obj, adj.p=TRUE, cutoff=1,  # show all.
     ncolused=5, grid.col="Blues", note.col="black")
-drawHeatmap(gom.obj, log.scale=T, ncolused=5)
+drawHeatmap(gom.obj, log.scale=TRUE, ncolused=5)
 drawHeatmap(gom.obj, what="Jaccard", ncolused=5)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

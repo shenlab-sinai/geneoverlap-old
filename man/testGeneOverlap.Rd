@@ -8,8 +8,9 @@
 }
 \description{
     Perform Fisher's exact test based on the information supplied in the 
-    GeneOverlap object, such as gene list A, B and genome size. Set the tested
-    Boolean label.
+    GeneOverlap object, i.e. gene list A, B and genome size. This function 
+    also calculates the Jaccard index. Will set the tested Boolean label after 
+    done.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -20,9 +21,10 @@
   \item{object}{A GeneOverlap object.}
 }
 \value{
-    A GeneOverlap object with valid p-value, odds ratio and contingency table. 
-    The tested Boolean label is set to true. Use show or print to display a 
-    summary of the object. Use accessors to get information of each slot.
+    A GeneOverlap object with valid p-value, odds ratio, Jaccard index and 
+    contingency table. The tested Boolean label is set to true. Use show or 
+    print to display a summary of the object. Use accessors to get information 
+    of each slot.
 %%  ~Describe the value returned
 %%  If it is a LIST, use
 %%  \item{comp1 }{Description of 'comp1'}
@@ -44,6 +46,7 @@ go.obj <- newGeneOverlap(hESC.ChIPSeq.list$H3K4me3,
 go.obj <- testGeneOverlap(go.obj)
 getPval(go.obj)
 getOddsRatio(go.obj)
+getJaccard(go.obj)
 getContbl(go.obj)
 print(go.obj)
 }

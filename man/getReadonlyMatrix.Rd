@@ -20,11 +20,12 @@
 \description{
     The gsetA and gsetB slots contain the gene set A and B as named lists. The
     self.compare slot contains the Boolean label for whether self-comparison is
-    performed. Use getMatrix to retrieve intersection, union, p-value and odds
-    ratio as a matrix. Use getNestedList to retrieve the intersection and union
-    gene lists and contingency tables as a nested list (outer list represents
-    columns and inner list represents rows). Use brackets [] to retrieve a
-    particular GeneOverlap object within the GeneOverlapMatrix object.
+    performed. Use getMatrix to retrieve intersection, union, Jaccard index, 
+    p-value and odds ratio as a matrix. Use getNestedList to retrieve the 
+    intersection and union gene lists and contingency tables as a nested list 
+    (outer list represents columns and inner list represents rows). Use 
+    brackets [] to retrieve a particular GeneOverlap object within the 
+    GeneOverlapMatrix object.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -32,7 +33,7 @@
 \S4method{getGsetB}{GeneOverlapMatrix}(object)
 \S4method{getSelfCompare}{GeneOverlapMatrix}(object)
 \S4method{getMatrix}{GeneOverlapMatrix}(object, name=c("pval", 
-    "odds.ratio", "intersection", "union"))
+    "odds.ratio", "intersection", "union", "Jaccard"))
 \S4method{getNestedList}{GeneOverlapMatrix}(object, name=c(
     "intersection", "union", "cont.tbl"))
 \S4method{[}{GeneOverlapMatrix}(x, i, j)
@@ -42,10 +43,11 @@
   \item{object}{A GeneOverlapMatrix object.}
   \item{x}{A GeneOverlapMatrix object.}
   \item{name}{A string description of the information to retrive. Use pval and
-  odds.ratio to retrieve p-values and odds ratios. In the case of matrix 
-  retrieval, intersection and union will return the numbers of genes. While in 
-  the case of nested list retrieval, intersection and union will return the 
-  actual gene lists. Use cont.tbl to retrieve the contingency tables.}
+  odds.ratio to retrieve p-values and odds ratios. Use Jaccard to retrieve 
+  Jaccard indices. In the context of matrix retrieval, intersection and union 
+  will return the numbers of genes. While in the case of nested list retrieval,
+  intersection and union will return the actual gene lists. Use cont.tbl to 
+  retrieve the contingency tables.}
   \item{i, j}{Integer or character indices to retrieve GeneOverlap objects from
   the matrix.}
 }
