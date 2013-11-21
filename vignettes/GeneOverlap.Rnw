@@ -4,15 +4,18 @@
 \documentclass{article}
 
 <<style, eval=TRUE, echo=FALSE, results=tex>>=
-BiocStyle::latex()
+BiocStyle::latex(use.unsrturl=FALSE)
 @
 
 \title{GeneOverlap: An R package to test and visualize gene overlaps}
 
 \author{Li Shen\\
-Contact: \email{li.shen@mssm.edu} or \email{shenli.sam@gmail.com}\\
+Contact: \email{li.shen@mssm.edu}\\
+or \email{shenli.sam@gmail.com}\\
 Icahn School of Medicine at Mount Sinai\\
-New York, New York}
+New York, New York\\
+\url{http://shenlab-sinai.github.io/shenlab-sinai/}
+}
 
 \begin{document}
 \SweaveOpts{concordance=TRUE}
@@ -157,7 +160,7 @@ For ChIP-seq, one replicate from IP treatment and one replicate from input contr
 sessionInfo()
 @
 
-\bibliographystyle{unsrt}
+\bibliographystyle{apalike}
 \bibliography{GeneOverlap}
 
 \end{document}
