@@ -13,7 +13,7 @@ BiocStyle::latex(use.unsrturl=FALSE)
 Contact: \email{li.shen@mssm.edu}\\
 Icahn School of Medicine at Mount Sinai\\
 New York, New York\\
-\url{http://shenlab-sinai.github.io/shenlab-sinai/}
+\url{http://dx.doi.org/10.5281/zenodo.60644}
 }
 
 \begin{document}

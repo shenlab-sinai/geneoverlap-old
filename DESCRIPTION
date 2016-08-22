@@ -9,7 +9,7 @@ Description: Test two sets of gene lists and visualize the results.
 License: GPL-3
 Suggests: RUnit, BiocGenerics, BiocStyle
 Imports: stats, RColorBrewer, gplots, methods
-URL: http://shenlab-sinai.github.io/shenlab-sinai/
+URL: http://dx.doi.org/10.5281/zenodo.60644
 biocViews: Enrichment, MultipleComparisons, Visualization
 Collate: AllClasses.R AllGenerics.R GeneOverlap-accessors.R 
         GeneOverlap-methods.R GeneOverlapMatrix-accessors.R
